@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>首页</title>
+		<link rel="stylesheet" href="css/extend.css" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				$('#collapseFour').collapse({
+					toggle: false
+				})
+			});
+		</script>
+		<style>
+			.panel-noborder {
+				border: hidden;
+				margin-bottom: 20px;
+				background-color: #fff;
+				border: 0px solid transparent;
+				border-radius: 4px;
+				-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+				box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+			}
+		</style>
+		<!--
+        	作者：295169719@qq.com
+        	时间：2017-07-09
+        	描述：顶部导航栏
+        -->
+		<header>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+						<div class="container ">
+							<a class="navbar-brand" title="回到首页" href="Home.html"><img src=""></a>
+							<div class="navbar-header">
+								<ul class="nav navbar-nav navbar-right ">
+									<li class="active">
+										<a href="Home.html">首页</a>
+									</li>
+									<li>
+										<a href="#">综合资讯</a>
+									</li>
+									<li>
+										<a href="#">我要卖</a>
+									</li>
+
+									<li>
+										<a href="user_home.html">个人中心</a>
+									</li>
+									<li>
+										<a href="">信息交流平台</a>
+									</li>
+								</ul>
+							</div>
+							<div>
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<a href="login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a>
+									</li>
+									<li>
+										<a href="register.html"><span class="glyphicon glyphicon-user"></span> 注册</a>
+									</li>
+								</ul>
+								<form class="navbar-form navbar-right">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="搜索">
+										<span class="input-group-btn">
+								<button class="btn btn-default" type="button">Go!
+								</button>
+							</span>
+									</div>
+								</form>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+		</header>
+
+		<!--
+        	作者：295169719@qq.com
+        	时间：2017-07-09
+        	描述：主界面
+        -->
+		<div class="container">
+			<br />
+
+			<div class="row">
+				<!--
+                	作者：295169719@qq.com
+                	时间：2017-07-09
+                	描述：分类列表
+                -->
+				<div class="col-md-3">
+					<div class="panel panel-default">
+						<div class="panel-body" style="font-size:16px;font-style: inherit;">
+							商品分类
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item">
+								<a herf="#">分类1</a>
+							</li>
+							<li class="list-group-item">
+								<a herf="#">分类1</a>
+							</li>
+							<li class="list-group-item">
+								<a herf="#">分类1</a>
+							</li>
+							<li class="list-group-item">
+								<a herf="#">分类1</a>
+							</li>
+							<li class="list-group-item">
+								<a herf="#">分类1</a>
+							</li>
+							<li class="list-group-item">
+								<a herf="#">分类1</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+									查看更多
+								</a>
+							</li>
+							<div id="collapseFour" class="panel-collapse collapse">
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+								<li class="list-group-item">
+									<a herf="#">分类1</a>
+								</li>
+							</div>
+						</ul>
+					</div>
+				</div>
+				<!--
+                	作者：295169719@qq.com
+                	时间：2017-07-09
+                	描述：详细信息
+                -->
+				<div class="col-md-9">
+
+					<!--
+                        	作者：295169719@qq.com
+                        	时间：2017-07-09
+                        	描述：广告滚动部分
+                        -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel-body" style="padding: 0px;">
+								<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+									<!-- 轮播（Carousel）指标 -->
+									<ol class="carousel-indicators">
+										<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+										<li data-target="#myCarousel" data-slide-to="1"></li>
+										<li data-target="#myCarousel" data-slide-to="2"></li>
+									</ol>
+									<!-- 轮播（Carousel）项目 -->
+									<div class="carousel-inner">
+										<div class="item active" style="background:url(a.jpg); background-size:cover;">
+											<img src="img/1.jpg" alt="First slide">
+										</div>
+										<div class="item" style="background:url(a.jpg); background-size:cover;">
+											<img src="img/1.jpg" alt="Second slide">
+										</div>
+										<div class="item" style="background:url(a.jpg); background-size:cover;">
+											<img src="img/1.jpg" alt="Third slide">
+										</div>
+										<!---->
+									</div>
+									<!-- 轮播（Carousel）导航 -->
+									<a class="carousel-control left" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+									<a class="carousel-control right" href="#myCarousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!--
+                        	作者：295169719@qq.com
+                        	时间：2017-07-09
+                        	描述：商品展示界面
+                        -->
+					<div class="row">
+						<div class="panel panel-default panel-noborder">
+							<div class="panel-body" style="font-size:20px;font-style: inherit;">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default">最新发布</button>
+									<button type="button" class="btn btn-default">最热商品</button>
+									<button type="button" class="btn btn-default">价格</button>
+									<div class="btn-group">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">商品所在地<span class="caret"></span> </button>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">荔园山庄</a>
+											</li>
+											<li>
+												<a href="#">湖畔公寓</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<ul class="list-group">
+								<li class="list-group-item">
+									<div class="row">
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<a href="#" class="text-right">商品名称</a>
+												</div>
+												<div class="panel-body"><img src="img/4.png">
+													<div class="panel-body">
+														<a href="#" class="text-right">商品描述</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="panel-body text-center">
+											<ul class="pagination">
+												<li>
+													<a href="#">&laquo;</a>
+												</li>
+												<li class="active">
+													<a href="#">1</a>
+												</li>
+												<li>
+													<a href="#">2</a>
+												</li>
+												<li>
+													<a href="#">3</a>
+												</li>
+												<li>
+													<a href="#">4</a>
+												</li>
+												<li>
+													<a href="#">5</a>
+												</li>
+												<li>
+													<a href="#">&raquo;</a>
+												</li>
+											</ul>
+										</div>
+
+									</div>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

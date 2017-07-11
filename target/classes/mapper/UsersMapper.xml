@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notfound.nktt.dao.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.notfound.nktt.model.Users">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="iUser_serial_number" jdbcType="INTEGER" property="iuserSerialNumber" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="studentID" jdbcType="INTEGER" property="studentid" />
+    <result column="IDnumber" jdbcType="VARCHAR" property="idnumber" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+  </resultMap>
+</mapper>
