@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-		<title>小跳跳，请登陆</title>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>小跳跳，请登陆</title>
 
-		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function(){
+					$("button#login").click(function(){
+						console.log("监测到您已点击按钮");
+						var info = getinfo();
+						console.log("getinfo成功");
+						$.post("users/login", info , readFeedback);
+					});
+				});
+
+			function getinfo(){
+				console.log("开始执行getinfo");
+				<!--获取表单信息,生成JSON类型数据-->
+				var JSON_info = {
+					"studentid": $("#studentid").val(),
+					"password": $("#password").val()
+				};
+				console.log("获得JSON_info");
+				<!--输出检查-->
+				console.log(JSON_info.studentid + " "+ JSON_info.password);
+				return JSON_info;
+			}
+
+			function readFeedback(data){
+				console.log("解析后台返回的JSON数据");
+
+					alert(data.message);
+
+					<!--if (data.data == 1){-->
+					<!--//succcess}-->
+					<!--else //fail-->
+
+				}
+			}
+
 
 		</script>
-	</head>
 
-	<body>
-		<style>
+</head>
+
+<body>
+<style>
 			.panel-noborder {
 				border: hidden;
 				margin-bottom: 20px;
@@ -27,114 +63,113 @@
 				box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
 			}
 		</style>
-		<!--导航栏-->
-		<!--给nav添加navbar-static-top可使导航条随着页面向下滚动而消失-->
-		<!--给nav添加navbar-inverse可使导航条变黑-->
-		<!--
-        	作者：295169719@qq.com
-        	时间：2017-07-10
-        	描述：顶部导航栏
-        -->
-		<header>
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-						<div class="container ">
-							<a class="navbar-brand" title="回到首页" href="Home.html"><img src=""></a>
-							<div class="navbar-header">
-								<ul class="nav navbar-nav navbar-right ">
-									<li>
-										<a href="Home.html">首页</a>
-									</li>
-									<li>
-										<a href="#">综合资讯</a>
-									</li>
-									<li>
-										<a href="#">我要卖</a>
-									</li>																		
-									<li>
-										<a href="">信息交流平台</a>
-									</li>
-								</ul>
-							</div>
-							<div>
-								<ul class="nav navbar-nav navbar-right">
-									<li>
-										<a href="register.html"><span class="glyphicon glyphicon-user"></span> 注册</a>
-									</li>									
-								</ul>								
-							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-
-		</header>
-
-		<!--
-        	作者：295169719@qq.com
-        	时间：2017-07-10
-        	描述：登陆主界面
-        -->
-		<br />
-		<br />
-		<br />
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-3"></div>
-				<div class="col-xs-6">
-					<div class="panel panel-default">
-						
-							<div class="panel-body" style="padding: 50px;">
-								
-								<img src="img/3.jpg" width="75px" height="75px" class="img-responsive center-block">
-								<form class="navbar-form ">
-									<ul class="list-group ">
-										<hr/>
-										<li class="list-group-item panel-noborder">
-											<div class="row">
-												<div class="col-lg-2"></div>
-												<div class="input-group input-group-lg col-md-8">
-													<input type="text" class="form-control" placeholder="请输入学号" />
-												</div>
-											</div>
-										</li>
-										<li class="list-group-item panel-noborder">
-											<div class="row">
-												<div class="col-lg-2"></div>
-												<div class="input-group input-group-lg col-md-8">
-													<input type="password" class="form-control" placeholder="请输入密码" />
-												</div>
-											</div>
-										</li>
-										<hr/>
-										<div class="text-center">
-											<div class="row">
-												<div class="col-lg-2"></div>
-												<div class="col-lg-4">
-													<input type="checkbox">记住密码</div>
-												<div class="col-lg-4">
-													<input type="checkbox">自动登录</div>
-											</div>
-											<div></div>
-											<br />
-											<div class="row">
-												<div class="col-lg-2"></div>
-												<button type="button" class="btn btn-primary btn-lg col-md-8">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
-											</div>											
-								</form>
-								
-								</div>
-								
-							</div>
-							
-						<div class="panel-body text-right">	
-									<a href="#">忘记密码？</a>&nbsp;|&nbsp;<a href="register.html">注册新账号</a>
-									</div>
+<!--导航栏-->
+<!--给nav添加navbar-static-top可使导航条随着页面向下滚动而消失-->
+<!--给nav添加navbar-inverse可使导航条变黑-->
+<!--
+    作者：295169719@qq.com
+    时间：2017-07-10
+    描述：顶部导航栏
+-->
+<header>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+				<div class="container ">
+					<a class="navbar-brand" title="回到首页" href="Home.html"><img src=""></a>
+					<div class="navbar-header">
+						<ul class="nav navbar-nav navbar-right ">
+							<li>
+								<a href="Home.html">首页</a>
+							</li>
+							<li>
+								<a href="#">综合资讯</a>
+							</li>
+							<li>
+								<a href="#">我要卖</a>
+							</li>
+							<li>
+								<a href="">信息交流平台</a>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="register.html"><span class="glyphicon glyphicon-user"></span> 注册</a>
+							</li>
+						</ul>
 					</div>
 				</div>
+			</nav>
+		</div>
+	</div>
+
+</header>
+
+<!--
+    作者：295169719@qq.com
+    时间：2017-07-10
+    描述：登陆主界面
+-->
+<br />
+<br />
+<br />
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-6">
+			<div class="panel panel-default">
+
+				<div class="panel-body" style="padding: 50px;">
+
+					<img src="img/3.jpg" width="75px" height="75px" class="img-responsive center-block">
+					<form class="navbar-form ">
+						<ul class="list-group ">
+							<hr/>
+							<li class="list-group-item panel-noborder">
+								<div class="row">
+									<div class="col-lg-2"></div>
+									<div class="input-group input-group-lg col-md-8">
+										<input type="text" class="form-control" id="studentid" placeholder="请输入学号" />
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item panel-noborder">
+								<div class="row">
+									<div class="col-lg-2"></div>
+									<div class="input-group input-group-lg col-md-8">
+										<input type="password" class="form-control" id="password" placeholder="请输入密码" />
+									</div>
+								</div>
+							</li>
+							<hr/>
+							<div class="text-center">
+								<div class="row">
+									<div class="col-lg-2"></div>
+									<div class="col-lg-4"><input type="checkbox">记住密码</div>
+									<div class="col-lg-4"><input type="checkbox">自动登录</div>
+								</div>
+								<br />
+								<div class="row">
+									<div class="col-lg-2"></div>
+									<button type="button" class="btn btn-primary btn-lg col-md-8" id="login">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+								</div>
+							</div>
+						</ul>
+					</form>
+
+				</div>
+
 			</div>
 
-	</body>
+			<div class="panel-body text-right">
+				<a href="#">忘记密码？</a>&nbsp;|&nbsp;<a href="register.html">注册新账号</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
 
 </html>

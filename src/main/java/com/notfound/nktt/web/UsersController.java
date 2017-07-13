@@ -25,7 +25,6 @@ import java.util.List;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import static com.sun.javafx.tools.resource.DeployResource.Type.data;
 
 /**
 * Created by CodeGenerator on 2017/07/11.
@@ -58,6 +57,11 @@ public class UsersController {
         stdCookie.setMaxAge(0);
         Cookie idCookie = new Cookie("userid", null);
         idCookie.setMaxAge(0);
+
+        tokenCookie.setPath("/");
+        stdCookie.setPath("/");
+        idCookie.setPath("/");
+
         httpServletResponse.addCookie(tokenCookie);
         httpServletResponse.addCookie(stdCookie);
         httpServletResponse.addCookie(idCookie);
@@ -72,6 +76,7 @@ public class UsersController {
             tokenCookie.setMaxAge(72000);
             stdCookie.setMaxAge(72000);
             idCookie.setMaxAge(72000);
+
             httpServletResponse.addCookie(tokenCookie);
             httpServletResponse.addCookie(stdCookie);
             httpServletResponse.addCookie(idCookie);
