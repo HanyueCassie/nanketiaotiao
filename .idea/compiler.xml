@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="nanketiaotiao" />
         <module name="spring-boot-api-project-seed" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="nanketiaotiao" target="1.7" />
       <module name="spring-boot-api-project-seed" target="1.7" />
     </bytecodeTargetLevel>
   </component>
