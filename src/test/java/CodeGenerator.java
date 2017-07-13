@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://10.211.55.4:3306/school?useSSL=true";
+    private static final String JDBC_URL = "jdbc:mysql://127.0.0.1:3306/nktt?useSSL=true";
     private static final String JDBC_USERNAME = "fullstack";
     private static final String JDBC_PASSWORD = "fullstack";
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
@@ -33,7 +33,7 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("users");
+        genCode("token");
     }
 
     public static void genCode(String... tableNames) {
