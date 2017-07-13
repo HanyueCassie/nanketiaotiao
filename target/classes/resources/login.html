@@ -8,11 +8,46 @@
 		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 		<title>小跳跳，请登陆</title>
 
-		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+					$("button#login").click(function(){
+						console.log("监测到您已点击按钮");
+						var info = getinfo();
+						console.log("getinfo成功");
+						$.post("users/login", info , readFeedback);
+					});
+				});
+
+			function getinfo(){
+				console.log("开始执行getinfo");
+				<!--获取表单信息,生成JSON类型数据-->
+				var JSON_info = {
+					"studentid": $("#studentid").val(),
+					"password": $("#password").val()
+				};
+				console.log("获得JSON_info");
+				<!--输出检查-->
+				console.log(JSON_info.studentid + " "+ JSON_info.password);
+				return JSON_info;
+			}
+
+			function readFeedback(data){
+				alert("解析后台返回的JSON数据");
+				if(data.message == "SUCCESS"){
+					alert(data.message);
+					//window.location.assign("http://localhost:63342/nanketiaotiao/resources/index.html");
+				}else{
+					alert(data.message);
+
+				}
+			}
+
 
 		</script>
+
 	</head>
 
 	<body>
@@ -95,7 +130,7 @@
 											<div class="row">
 												<div class="col-lg-2"></div>
 												<div class="input-group input-group-lg col-md-8">
-													<input type="text" class="form-control" placeholder="请输入学号" />
+													<input type="text" class="form-control" id="studentid" placeholder="请输入学号" />
 												</div>
 											</div>
 										</li>
@@ -103,7 +138,7 @@
 											<div class="row">
 												<div class="col-lg-2"></div>
 												<div class="input-group input-group-lg col-md-8">
-													<input type="password" class="form-control" placeholder="请输入密码" />
+													<input type="password" class="form-control" id="password" placeholder="请输入密码" />
 												</div>
 											</div>
 										</li>
@@ -111,17 +146,16 @@
 										<div class="text-center">
 											<div class="row">
 												<div class="col-lg-2"></div>
-												<div class="col-lg-4">
-													<input type="checkbox">记住密码</div>
-												<div class="col-lg-4">
-													<input type="checkbox">自动登录</div>
+												<div class="col-lg-4"><input type="checkbox">记住密码</div>
+												<div class="col-lg-4"><input type="checkbox">自动登录</div>
 											</div>
-											<div></div>
 											<br />
 											<div class="row">
 												<div class="col-lg-2"></div>
-												<button type="button" class="btn btn-primary btn-lg col-md-8">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
-											</div>											
+												<button type="button" class="btn btn-primary btn-lg col-md-8" id="login">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+											</div>
+										</div>
+									</ul>
 								</form>
 								
 								</div>
