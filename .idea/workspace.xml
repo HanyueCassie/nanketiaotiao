@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7ca9c7d-5801-4f64-aaf3-bcfdd8d72f0c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/notfound/nktt/web/UsersController.class" afterPath="$PROJECT_DIR$/target/classes/com/notfound/nktt/web/UsersController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/CodeGenerator.class" afterPath="$PROJECT_DIR$/target/test-classes/CodeGenerator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/notfound/nktt/web/UsersController.java" afterPath="$PROJECT_DIR$/src/main/java/com/notfound/nktt/web/UsersController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/test/java/CodeGenerator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1177,7 +1177,7 @@
       <workItem from="1499788935318" duration="467000" />
       <workItem from="1499789416071" duration="1551000" />
       <workItem from="1499860022358" duration="9368000" />
-      <workItem from="1499946251009" duration="3615000" />
+      <workItem from="1499946251009" duration="3709000" />
     </task>
     <task id="LOCAL-00001" summary="login api updated">
       <created>1499908759974</created>
@@ -1186,11 +1186,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499908759974</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="login api updated with token">
+      <created>1499952700309</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1499952700309</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15001000" />
+    <option name="totallyTimeSpent" value="15095000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1270,7 +1277,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login api updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="login api updated" />
+    <MESSAGE value="login api updated with token" />
+    <option name="LAST_COMMIT_MESSAGE" value="login api updated with token" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1456,6 +1464,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-910">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
