@@ -1,8 +1,13 @@
 package com.notfound.nktt.web;
 import com.notfound.nktt.core.Result;
 import com.notfound.nktt.core.ResultGenerator;
+
 import com.notfound.nktt.model.Users;
 import com.notfound.nktt.service.UsersService;
+
+import com.notfound.nktt.service.TokenService;
+import com.notfound.nktt.model.Token;
+
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +44,9 @@ public class UsersController {
     @Resource
     private UsersService usersService;
 
+    @Resource
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public Result login(@CookieValue(value = tokenName, required = false) String cookieVal,
                         Integer studentid, String password,
@@ -57,11 +65,8 @@ public class UsersController {
             return ResultGenerator.genFailResult("用户不存在！");
         }
         if (user.getPassword().equals(password)){
-//            String md5 = DigestUtils.md5Hex(user.getStudentid());
-            /*
-            写入数据库新token
-             */
-            tokenCookie.setValue(String.valueOf(jiami(user.getStudentid().toString())));
+            String tokenString = String.valueOf(jiami(user.getStudentid().toString()));
+            tokenCookie.setValue(tokenString);
             stdCookie.setValue(user.getStudentid().toString());
             idCookie.setValue(user.getIuserSerialNumber().toString());
             tokenCookie.setMaxAge(72000);
@@ -70,44 +75,67 @@ public class UsersController {
             httpServletResponse.addCookie(tokenCookie);
             httpServletResponse.addCookie(stdCookie);
             httpServletResponse.addCookie(idCookie);
-            return ResultGenerator.genSuccessResult(1, "登录成功！cookieValue = " + cookieVal);
+            Token token = new Token();
+            token.setUserid(user.getIuserSerialNumber());
+            token.setStudentid(user.getStudentid());
+            token.setTokenstring(tokenString);
+            if (tokenService.findBy("userid", user.getIuserSerialNumber()) == null){
+                tokenService.save(token);
+            }
+            else{
+                tokenService.update(token);
+            }
+            return ResultGenerator.genSuccessResult(1, "登录成功!");
         }
         return ResultGenerator.genFailResult("密码错误！");
     }
 
-    @PostMapping("/logout")
-    public Result logout(@CookieValue(value = tokenName, required = false) String cookieVal,
-                         Integer studentid,
-                         HttpServletRequest request){
-        /*
-        比对
-         */
-        request.getSession().invalidate();
-        request.getSession().removeAttribute("studentid");
-        request.getSession().removeAttribute("userid");
-        request.getSession().removeAttribute(tokenName);
-        /*
-        往数据库中写入新的token
-         */
-        return ResultGenerator.genSuccessResult(1, "注销成功！");
-    }
-
+//    @PostMapping("/logout")
+//    public Result logout(@CookieValue(value = tokenName, required = false) String cookieVal,
+//                         Integer studentid, Integer userid,
+//                         HttpServletRequest request) {
+//        private static String getTokenList(HttpSession session) {
+//            Object obj = session.getAttribute(tokenName);
+//            if (obj != null) {
+//                return (String) obj;
+//            } else {
+//                String tokenList = new String();
+//                ResultGenerator.setAttribute(tokenName, tokenList);
+//                return tokenList;
+//            }
+//        }
+//
+//        private static void saveTokenString(String tokenStr, HttpSession session) {
+//            String tokenList = getTokenList(session);
+//            tokenList.add(tokenStr);
+//            session.setAttribute(tokenName, tokenList);
+//        }
+//
+//        private static String generateTokenString(){
+//            return new Long(System.currentTimeMillis()).toString();
+//        }
+//
+//        if (user.gettokenName().equals(tokenName)) {
+//            return ResultGenerator.genSuccessResult(1, "注销成功！");
+//        }
+//        return ResultGenerator.genSuccessResult(0, "注销失败！");
+//    }
     private String jiami(String data){
         return DigestUtils.md5Hex(data + secretKey + System.nanoTime());
     }
 
-//    @PostMapping("/add")
-//    public Result add(Users users) {
-//        usersService.save(users);
-//        return ResultGenerator.genSuccessResult();
-//    }
-//
-//    @PostMapping("/delete")
-//    public Result delete(Integer id) {
-//        usersService.deleteById(id);
-//        return ResultGenerator.genSuccessResult();
-//    }
-//
+    @PostMapping("/add")
+    public Result add(Users users) {
+        usersService.save(users);
+        return ResultGenerator.genSuccessResult();
+    }
+
+    @PostMapping("/delete")
+    public Result delete(Integer id) {
+        usersService.deleteById(id);
+        return ResultGenerator.genSuccessResult();
+    }
+
 //    @PostMapping("/update")
 //    public Result update(Users users) {
 //        usersService.update(users);
